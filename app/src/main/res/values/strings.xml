@@ -45,4 +45,6 @@
     </string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_quotation">QuotationActivity</string>
+    <string name="title_activity_main2">MainActivity2</string>
 </resources>

@@ -27,15 +27,12 @@
 
     <LinearLayout
 
-        android:layout_width="match_parent"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentBottom="false"
         android:layout_centerInParent="true"
         android:background="@android:color/white"
-        android:orientation="vertical"
 
+        android:orientation="vertical"
         android:padding="30dp">
 
         <ImageView
@@ -55,9 +52,9 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:background="@drawable/text_field_background"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/text_field_background"
                 android:orientation="vertical"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
@@ -81,14 +78,13 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="10dp"
-                android:background="@drawable/text_field_background"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/text_field_background"
                 android:orientation="vertical"
                 android:paddingLeft="30dp"
-                android:paddingRight="30dp"
-                >
+                android:paddingRight="30dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -109,11 +105,11 @@
 
 
             <LinearLayout
-                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="20dp">
+                android:paddingTop="20dp"
+                android:visibility="invisible">
 
                 <CheckBox
 
