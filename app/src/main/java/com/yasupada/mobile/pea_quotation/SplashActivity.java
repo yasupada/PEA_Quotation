@@ -12,7 +12,7 @@ import android.view.WindowManager;
 public class SplashActivity extends Activity {
 
     SharedPreferences sharedPreferences;
-    private static final String MY_PREFS = "scm_yasupada";
+    private static final String MY_PREFS = "pea_qt_yasupada";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class SplashActivity extends Activity {
         new Thread(new Runnable() {
             public void run() {
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) { }
 
                 Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
