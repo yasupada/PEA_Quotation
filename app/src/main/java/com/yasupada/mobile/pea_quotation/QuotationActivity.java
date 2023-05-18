@@ -76,22 +76,40 @@ public class QuotationActivity extends AppCompatActivity {
         }
     }
 
+    private ArrayList<CartItem> priceSet(int i) {
+        ArrayList<CartItem> cartItems = new ArrayList<>();
+        if(i==1) {
+            cartItems.add(new CartItem("450 สายขนาด 50 AW ชนิด AAA", 58));
+            cartItems.add(new CartItem("452 สายขนาด 95 AW ชนิด AAA", 108));
+            cartItems.add(new CartItem("3 เสาขนาด 8 เมตร", 3464));
+            cartItems.add(new CartItem("4 เสาขนาด 9 เมตร", 4239));
+            cartItems.add(new CartItem("60 Rack 2 เสา 8 9 ประเภท SP", 558));
+            cartItems.add(new CartItem("63 Rack 2 เสา 8 9 ประเภท DE", 1046));
+            cartItems.add(new CartItem("66 Rack 2 เสา 8 9 ประเภท DDE", 2031));
+            cartItems.add(new CartItem("68 Rack 2 เสา 12 ประเภท SP", 583));
+
+            cartItems.add(new CartItem("71 Rack 2 เสา 12 ประเภท DE", 584));
+            cartItems.add(new CartItem("74 Rack 2 เสา 12 ประเภท DDE", 1076));
+        }else if(i==2) {
+            cartItems.add(new CartItem("450 สายขนาด 50 AW ชนิด AAA", 58));
+            cartItems.add(new CartItem("452 สายขนาด 95 AW ชนิด AAA", 108));
+            cartItems.add(new CartItem("3 เสาขนาด 8 เมตร", 3464));
+        }else if(i==3) {
+            cartItems.add(new CartItem("450 สายขนาด 50 AW ชนิด AAA", 58));
+            cartItems.add(new CartItem("452 สายขนาด 95 AW ชนิด AAA", 108));
+
+            cartItems.add(new CartItem("71 Rack 2 เสา 12 ประเภท DE", 584));
+            cartItems.add(new CartItem("74 Rack 2 เสา 12 ประเภท DDE", 1076));
+        }
+
+        return cartItems;
+    }
+
     private void createCheckBoxes() {
         LinearLayout checkBoxContainer = findViewById(R.id.checkBoxContainer);
 
         // Example data for checkbox items
-        ArrayList<CartItem> cartItems = new ArrayList<>();
-        cartItems.add(new CartItem("450 สายขนาด 50 AW ชนิด AAA", 58));
-        cartItems.add(new CartItem("452 สายขนาด 95 AW ชนิด AAA", 108));
-        cartItems.add(new CartItem("3 เสาขนาด 8 เมตร", 3464));
-        cartItems.add(new CartItem("4 เสาขนาด 9 เมตร", 4239));
-        cartItems.add(new CartItem("60 Rack 2 เสา 8 9 ประเภท SP", 558));
-        cartItems.add(new CartItem("63 Rack 2 เสา 8 9 ประเภท DE", 1046));
-        cartItems.add(new CartItem("66 Rack 2 เสา 8 9 ประเภท DDE", 2031));
-        cartItems.add(new CartItem("68 Rack 2 เสา 12 ประเภท SP", 583));
-
-        cartItems.add(new CartItem("71 Rack 2 เสา 12 ประเภท DE", 584));
-        cartItems.add(new CartItem("74 Rack 2 เสา 12 ประเภท DDE", 1076));
+        ArrayList<CartItem> cartItems = priceSet();
 
 
         // Create checkboxes based on the cart items
