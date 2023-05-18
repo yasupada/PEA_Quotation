@@ -32,10 +32,13 @@ public class QuotationActivity extends AppCompatActivity {
     private TextView operationTextView;
     private Button openPdfButton;
 
+    int price_set = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quotation);
+
+        price_set = getIntent().getExtras().getInt("item_set",1);
 
         checkBoxList = new ArrayList<>();
         totalTextView = findViewById(R.id.totalTextView);
@@ -47,7 +50,6 @@ public class QuotationActivity extends AppCompatActivity {
 
         // Set listener to calculate total when checkboxes are checked/unchecked
         setCheckBoxListener();
-
 
         openPdfButton = findViewById(R.id.openPdfButton);
 
@@ -122,8 +124,6 @@ public class QuotationActivity extends AppCompatActivity {
                 CartItem item = (CartItem) checkBox.getTag();
                 // total += item.getPrice() * item.getQuantity();
                 }
-
-
         }
         double operationAmount = total * 0.30;
         double netTotalPrice = total + operationAmount;

@@ -48,8 +48,9 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(MenuActivity.this, "Item 3 clicked", Toast.LENGTH_SHORT).show();
-                // Perform desired action for item 3
+                Intent intent = new Intent(MenuActivity.this,QuotationActivity.class);
+                intent.putExtra("item_set",1);
+                startActivity(intent);
 
             }
         });
@@ -57,7 +58,9 @@ public class MenuActivity extends AppCompatActivity {
         menu_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MenuActivity.this,QuotationActivity.class);
+                intent.putExtra("item_set",2);
+                startActivity(intent);
             }
         });
 
@@ -67,6 +70,7 @@ public class MenuActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(MenuActivity.this,QuotationActivity.class);
+                intent.putExtra("item_set",3);
                 startActivity(intent);
             }
         });
