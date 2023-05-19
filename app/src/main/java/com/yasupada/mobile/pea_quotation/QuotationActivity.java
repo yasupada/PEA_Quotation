@@ -109,7 +109,7 @@ public class QuotationActivity extends AppCompatActivity {
         LinearLayout checkBoxContainer = findViewById(R.id.checkBoxContainer);
 
         // Example data for checkbox items
-        ArrayList<CartItem> cartItems = priceSet();
+        ArrayList<CartItem> cartItems = priceSet(price_set);
 
 
         // Create checkboxes based on the cart items
