@@ -58,7 +58,7 @@ public class MenuActivity extends AppCompatActivity {
         menu_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this,QuotationActivity.class);
+                Intent intent = new Intent(MenuActivity.this,Quotation2Activity.class);
                 intent.putExtra("item_set",2);
                 startActivity(intent);
             }
@@ -67,8 +67,6 @@ public class MenuActivity extends AppCompatActivity {
         menu_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 Intent intent = new Intent(MenuActivity.this,QuotationActivity.class);
                 intent.putExtra("item_set",3);
                 startActivity(intent);
