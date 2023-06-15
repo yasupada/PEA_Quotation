@@ -19,8 +19,11 @@ import android.widget.Toast;
 public class LoginActivity extends Activity {
 
 
-    private static final String ADMIN_USERNAME = "admin";
-    private static final String ADMIN_PASSWORD = "123456";
+//    private static final String ADMIN_USERNAME = "admin";
+//    private static final String ADMIN_PASSWORD = "123456";
+
+    private static final String[] USERNAMES = {"john", "can", "karn", "sanun"};
+    private static final String[] PASSWORDS = {"501447", "501771", "505712", "439673"};
 
     private EditText usernameEditText;
     private EditText passwordEditText;
@@ -51,30 +54,56 @@ public class LoginActivity extends Activity {
         edtUsername.setText("");
         edtPassword.setText("");
         btnLogin=findViewById(R.id.btnLogin);
+//        btnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//                String username = edtUsername.getText().toString();
+//                String password = edtPassword.getText().toString();
+//
+//                if (username.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)) {
+//                    // Authentication successful
+//                    // Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+//                    // Proceed to next activity or perform other actions
+//
+//                    Intent intent = new Intent(LoginActivity.this,MenuActivity.class);
+//                    startActivity(intent);
+//
+//                } else {
+//                    // Authentication failed
+//                    Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+//                }
+//
+//
+//
+//
+//            }
+//        });
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 String username = edtUsername.getText().toString();
                 String password = edtPassword.getText().toString();
 
-                if (username.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)) {
+                boolean isAuthenticated = false;
+
+                for (int i = 0; i < USERNAMES.length; i++) {
+                    if (username.equals(USERNAMES[i]) && password.equals(PASSWORDS[i])) {
+                        isAuthenticated = true;
+                        break;
+                    }
+                }
+
+                if (isAuthenticated) {
                     // Authentication successful
-                    // Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                    // Proceed to next activity or perform other actions
-
-                    Intent intent = new Intent(LoginActivity.this,MenuActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
                     startActivity(intent);
-
                 } else {
                     // Authentication failed
                     Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
                 }
-
-
-
-
             }
         });
 
