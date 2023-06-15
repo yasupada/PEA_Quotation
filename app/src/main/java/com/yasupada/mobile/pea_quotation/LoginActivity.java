@@ -15,6 +15,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 public class LoginActivity extends Activity {
@@ -99,9 +102,14 @@ public class LoginActivity extends Activity {
                 }
 
                 if (isAuthenticated) {
-                    // Authentication successful
-                    Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-                    startActivity(intent);
+                    // Perform the GET request in a background thread
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            sendGetRequest(username, password);
+                        }
+                    }).start();
+
                 } else {
                     // Authentication failed
                     Toast.makeText(LoginActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
@@ -120,18 +128,39 @@ public class LoginActivity extends Activity {
 
     }
 
+    private void sendGetRequest(String u, String p) {
+        HttpURLConnection urlConnection = null;
+        try {
+            URL url = new URL(urlLog + "?u=" + u + "&p=" + p); // Replace with your API endpoint
 
-    private void submitLog(String u,String p) {
-        Uri imageUri = Uri.parse(urlLog + "?u=" + u + "&p=" + p);
-        Intent intent = new Intent(Intent.ACTION_VIEW, imageUri);
-        intent.setPackage("com.android.chrome"); // Specify the package name for Chrome
+            // Open the connection
+            urlConnection = (HttpURLConnection) url.openConnection();
 
-        // Verify if Chrome is installed on the device
-        if (intent.resolveActivity(getPackageManager()) != null) {
+            // Set the request method
+            urlConnection.setRequestMethod("GET");
+
+            // Set any headers or parameters if required
+
+            // Connect to the server
+            urlConnection.connect();
+
+            // Ignore the response and close the connection
+            urlConnection.getResponseCode(); // This line is necessary to initiate the request
+
+            // You can check the response code if needed, but since you want to ignore the result,
+            // you don't need to do anything with it.
+
+            // Authentication successful
+            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
             startActivity(intent);
-        } else {
-            // Chrome is not installed, handle it accordingly
-            // For example, show an error message or open in a different browser
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // Close the connection
+            if (urlConnection != null) {
+                urlConnection.disconnect();
+            }
         }
     }
 
