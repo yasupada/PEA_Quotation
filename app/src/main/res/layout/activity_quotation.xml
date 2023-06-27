@@ -131,6 +131,14 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/vatTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkBoxContainer"
+            android:text="VAT: "
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/operationTotalTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

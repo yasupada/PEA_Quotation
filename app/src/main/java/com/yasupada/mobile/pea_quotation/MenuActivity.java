@@ -24,7 +24,7 @@ public class MenuActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMenuBinding binding;
-    private ImageView menu_1,menu_2,menu_3,menu_4,menu_5;
+    private ImageView menu_1,menu_2,menu_3,menu_4,menu_5,menu_6;
 
 
     private static final String IMAGE_URL = "https://jackk368.com/solar_info.jpg";
@@ -43,6 +43,7 @@ public class MenuActivity extends AppCompatActivity {
         menu_3 = findViewById(R.id.menu_3);
         menu_4 = findViewById(R.id.menu_4);
         menu_5 = findViewById(R.id.menu_5);
+        menu_6 = findViewById(R.id.menu_6);
 
         menu_1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,10 +89,31 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+
+        menu_6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openImageInChrome(IMAGE_URL);
+            }
+        });
     }
 
     private void openImageInChrome(String imageUrl) {
         Uri imageUri = Uri.parse(imageUrl);
+        Intent intent = new Intent(Intent.ACTION_VIEW, imageUri);
+        intent.setPackage("com.android.chrome"); // Specify the package name for Chrome
+
+        // Verify if Chrome is installed on the device
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            // Chrome is not installed, handle it accordingly
+            // For example, show an error message or open in a different browser
+        }
+    }
+
+    private void openLogViewInChrome(String logViewUrl) {
+        Uri imageUri = Uri.parse(logViewUrl);
         Intent intent = new Intent(Intent.ACTION_VIEW, imageUri);
         intent.setPackage("com.android.chrome"); // Specify the package name for Chrome
 

@@ -36,6 +36,7 @@ public class QuotationActivity extends AppCompatActivity {
     private TextView totalTextView;
     private TextView netTotalTextView;
     private TextView operationTextView;
+    private TextView vatTextView;
     private Button openPdfButton;
 
     private EditText edtNo,edtName;
@@ -51,6 +52,7 @@ public class QuotationActivity extends AppCompatActivity {
         checkBoxList = new ArrayList<>();
         totalTextView = findViewById(R.id.totalTextView);
         operationTextView = findViewById(R.id.operationTotalTextView);
+        vatTextView = findViewById(R.id.vatTextView);
         netTotalTextView = findViewById(R.id.netTotalTextView);
 
         // Create checkboxes dynamically
@@ -78,9 +80,9 @@ public class QuotationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String no = edtNo.getText().toString();
                 String name = edtName.getText().toString();
-                String total = "10,000"; //totalTextView.getText();
-                String oper_total = "3,000"; //totalTextView.getText();
-                String vat = "100"; //totalTextView.getText();
+                String total =  totalTextView.getText().toString();
+                String oper_total =  operationTextView.getText().toString();
+                String vat = vatTextView.getText().toString();
                 String net_price = "13,100"; //totalTextView.getText();
                 String waranty = "0";
 
@@ -335,13 +337,14 @@ public class QuotationActivity extends AppCompatActivity {
             if (checkBox.isChecked()) {
 
                 CartItem item = (CartItem) checkBox.getTag();
-                // total += item.getPrice() * item.getQuantity();
+                 total += item.getPrice() * item.getQuantity();
                 }
         }
         double operationAmount = total * 0.30;
         double netTotalPrice = total + operationAmount;
 
         totalTextView.setText("Total: $" + netTotalPrice);
+        vatTextView.setText("Vat: $" + 0);
         operationTextView.setText("Operation Total: $" + netTotalPrice);
         netTotalTextView.setText("Net Total: $" + netTotalPrice);
     }

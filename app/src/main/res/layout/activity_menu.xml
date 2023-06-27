@@ -136,7 +136,15 @@
                     android:elevation="4dp"
                     />
 
-
+                <ImageView
+                    android:id="@+id/menu_6"
+                    android:layout_width="143dp"
+                    android:layout_height="142dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/booking"
+                    android:elevation="4dp"
+                    />
 
             </LinearLayout>
         </LinearLayout>
