@@ -56,8 +56,8 @@ public class LoginActivity extends Activity {
 
         edtPassword = findViewById(R.id.edtPassword);
         edtUsername = findViewById(R.id.edtUsername);
-        edtUsername.setText("");
-        edtPassword.setText("");
+        edtUsername.setText("john");
+        edtPassword.setText("501447");
         btnLogin=findViewById(R.id.btnLogin);
 //        btnLogin.setOnClickListener(new View.OnClickListener() {
 //            @Override

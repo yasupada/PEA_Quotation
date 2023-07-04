@@ -1,5 +1,6 @@
 package com.yasupada.mobile.pea_quotation;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,6 +29,8 @@ public class MenuActivity extends AppCompatActivity {
 
 
     private static final String IMAGE_URL = "https://jackk368.com/solar_info.jpg";
+    private static final String LOG_URL = "https://jackk368.com/viewlog.php";
+
     private static final int REQUEST_PERMISSION = 1;
 
 
@@ -59,9 +62,13 @@ public class MenuActivity extends AppCompatActivity {
         menu_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this,Quotation2Activity.class);
-                intent.putExtra("item_set",2);
-                startActivity(intent);
+//                Intent intent = new Intent(MenuActivity.this,Quotation2Activity.class);
+//                intent.putExtra("item_set",2);
+//                startActivity(intent);
+
+                PopupDialogFragment dialogFragment = new PopupDialogFragment();
+                dialogFragment.show(getSupportFragmentManager(), "popup_dialog");
+
             }
         });
 
@@ -93,9 +100,14 @@ public class MenuActivity extends AppCompatActivity {
         menu_6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openImageInChrome(IMAGE_URL);
+                openImageInChrome(LOG_URL);
             }
         });
+    }
+
+    public static void openUrl(Context context, String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        context.startActivity(intent);
     }
 
     private void openImageInChrome(String imageUrl) {
@@ -109,6 +121,20 @@ public class MenuActivity extends AppCompatActivity {
         } else {
             // Chrome is not installed, handle it accordingly
             // For example, show an error message or open in a different browser
+        }
+    }
+
+    private void openPdfInChrome(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.parse(url), "application/pdf");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+        // Check if there is an application to handle the intent
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            // No application available to handle PDF files
+            // Handle this case as per your app's requirements
         }
     }
 
