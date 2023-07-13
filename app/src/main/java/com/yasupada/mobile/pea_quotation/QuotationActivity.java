@@ -324,6 +324,19 @@ public class QuotationActivity extends AppCompatActivity {
             cartItems.add(new CartItem(false,"71 Rack 2 เสา 12 ประเภท DE 584.00", 584));
             cartItems.add(new CartItem(false,"74 Rack 2 เสา 12 ประเภท DDE 1,076.00", 1076));
             cartItems.add(new CartItem(false,"175 Rack 4 เสา 8 9 ประเภท SP 888.00",888));
+            cartItems.add(new CartItem(false,"178 Rack 4 เสา 8 9 ประเภท DE 1,950",1950));
+            cartItems.add(new CartItem(false,"181 Rack 4 เสา 8 9 ประเภท DDE 3,784",3784));
+            cartItems.add(new CartItem(false,"183 Rack 4 เสา 12 ประเภท SP 913.00",913));
+            cartItems.add(new CartItem(false,"186 Rack 4 เสา 12 ประเภท DE 1,998.00",1998));
+            cartItems.add(new CartItem(false,"189 Rack 4 เสา 12 ประเภท DDE 3,820.00",3820));
+            cartItems.add(new CartItem(false,"369 GUY DE 3,645",3645));
+            cartItems.add(new CartItem(false,"370 GUY DDE 3,690",3690));
+            cartItems.add(new CartItem(false,"450 สายขนาด 50 AW ชนิด/m",58));
+            cartItems.add(new CartItem(false,"452 สายขนาด 95 AW ชนิด/m ",95));
+            cartItems.add(new CartItem(false,"555 LT Lightning Arrester For 2W",3362));
+            cartItems.add(new CartItem(false,"557 LT Lightning Arrester For 4W ",4096));
+            cartItems.add(new CartItem(false,"1020260301 PREFORMED D/E AW50",260));
+            cartItems.add(new CartItem(false,"1020260302 PREFORMED D/E AW95",314));
         }
 
         return cartItems;
